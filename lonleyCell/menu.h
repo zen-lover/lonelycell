@@ -9,6 +9,8 @@
 #ifndef menu_h
 #define menu_h
 
+#include "cellSingle.h"
+#define flag_first 5
 
 
 void Load(void){
@@ -16,14 +18,17 @@ void Load(void){
 }
 void Single(void){
     printf("Single\n");
+    struct cells *first_player;
+    first_player = cells_new();
     printf("enter number of your cell:\n");
     int number_cell;
     scanf("%d",&number_cell);
     for (int i=1; i<=number_cell; i++) {
         printf("what is name of your %dth cell?\n",i);
-        char mamad[100];
-        gets(mamad);
-        
+        struct cell *cel= malloc(sizeof(struct cell));
+        cel->number=i;
+        gets(cel->name);
+        cel->flag=flag_first;
     }
 }
 void Multi(void){
