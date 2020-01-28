@@ -13,7 +13,8 @@ struct map {
     char name[256];
     int x;
     int y;
-    int energy;
+    int energy_m;
+    int energy_c;
     char kind;
     
 };
