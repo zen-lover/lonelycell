@@ -11,7 +11,7 @@
 
 #include "map.h"
 
-void mamad(struct cells * player){
+void single_status(struct cells * player){
     
     FILE * status_player;
     status_player=fopen("/Users/mohammadmahdi/Documents/CE/c/finalProject/lonleyCell/lonleyCell/status.txt","w+");
@@ -28,6 +28,29 @@ void mamad(struct cells * player){
         player->head=player->head->next;
     }
     fclose(status_player);
+}
+
+
+void map_status(struct maps * game_map){
+    
+    FILE * status_map;
+    status_map=fopen("/Users/mohammadmahdi/Documents/CE/c/finalProject/lonleyCell/lonleyCell/status_map.txt","w+");
+
+    if (status_map==NULL) {
+        printf("error");
+    }
+
+    for (int i=1; i<=game_map->length; i++) {
+        fprintf(status_map, "%d)  ",i);
+        fprintf(status_map, "%s\t\t",game_map->head->map->name);
+        fprintf(status_map, "(%d,%d)\t\t",game_map->head->map->x,game_map->head->map->y);
+        fprintf(status_map, "energy of map:%-5d\t\t",game_map->head->map->energy_m);
+        fprintf(status_map, "kind:%c\t\t",game_map->head->map->kind);
+        fprintf(status_map, "energy of cell:%d\n",game_map->head->map->energy_c);
+        
+        game_map->head=game_map->head->next;
+    }
+    fclose(status_map);
 }
 
 
