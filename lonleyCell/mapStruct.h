@@ -14,18 +14,18 @@ struct map {
     int x;
     int y;
     int energy;
-    int kind;
+    char kind;
     
 };
 
 struct maps {
     int length;
-    struct cells_el *head;
+    struct maps_el *head;
 };
 
 struct maps_el {
-    struct cell *cell;
-    struct cells_el *next;
+    struct map *map;
+    struct maps_el *next;
 };
 
 
@@ -41,7 +41,7 @@ struct maps *maps_new(void) {
 void maps_push_back(struct maps *maps, struct map *map) {
   struct maps_el *el = malloc(sizeof(struct maps_el));
   el->next = NULL;
-  el->cell = cell;
+  el->map = map;
 
   maps->length++;
 
