@@ -11,7 +11,12 @@
 
 struct cell {
     char name[256];
-    char id[8];
+    int x;
+    int y;
+    int energy;
+    int flag;
+    int number;
+    
 };
 
 struct cells {
@@ -89,13 +94,13 @@ void cells_remove(struct cells *cells, int index) {
 
 
 
-int cells_search_name(struct cells *cells, const char *id) {
+int cells_search_name(struct cells *cells, const char *name) {
   int index = -1;
   int i = 0;
 
   struct cells_el *p = cells->head;
   while (p) {
-    if (strcmp(p->cell->id, id) == 0) {
+    if (strcmp(p->cell->name, name) == 0) {
       index = i;
       break;
     }
