@@ -22,7 +22,7 @@ int main(int argc, const char * argv[]) {
     
 //    part2
     
-    printf("%d",x);
+    
     
     
 //    part3

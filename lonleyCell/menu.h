@@ -9,7 +9,6 @@
 #ifndef menu_h
 #define menu_h
 
-int x=9;
 
 
 void Load(void){
