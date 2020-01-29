@@ -96,7 +96,7 @@ void cells_remove(struct cells *cells, int index) {
 
 int cells_search_name(struct cells *cells, const char *name) {
   int index = -1;
-  int i = 0;
+  int i = 1;
 
   struct cells_el *p = cells->head;
   while (p) {
