@@ -16,6 +16,7 @@ struct map {
     int energy_m;
     int energy_c;
     char kind;
+    int flag;
     
 };
 
