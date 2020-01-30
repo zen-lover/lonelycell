@@ -67,8 +67,8 @@ void map_status(struct maps * game_map,int num_player,int turn){
         printf("error");
     }
 
-    fprintf(status_map, "number of player : %d\t\n",num_player);
-    fprintf(status_map, "turn : %d\t\n",turn);
+    fprintf(status_map, "number of player : %d\n",num_player);
+    fprintf(status_map, "turn : %d\n",turn);
     
     
     fprintf(status_map, "\nindex\t");
