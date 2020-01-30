@@ -9,6 +9,8 @@
 #ifndef mapStruct_h
 #define mapStruct_h
 
+//#include "map.h"
+
 struct map {
     char name[256];
     int x;
@@ -39,6 +41,7 @@ struct maps *maps_new(void) {
 
   return clls;
 }
+
 
 void maps_push_back(struct maps *maps, struct map *map) {
   struct maps_el *el = malloc(sizeof(struct maps_el));
