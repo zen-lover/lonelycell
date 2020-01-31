@@ -16,7 +16,7 @@
 
 void single_status(struct cells * );
 void multi_status(struct cells * );
-void map_status(struct maps * ,int,int);
+void map_status(struct maps * ,int,int,unsigned int);
 
 void single_status(struct cells * player){
     
@@ -58,7 +58,7 @@ void multi_status(struct cells * player){
     fclose(status_player);
 }
 
-void map_status(struct maps * game_map,int num_player,int turn){
+void map_status(struct maps * game_map,int num_player,int turn, unsigned int n){
     
     FILE * status_map;
     status_map=fopen("/Users/mohammadmahdi/Documents/CE/c/finalProject/lonleyCell/lonleyCell/status_map.txt","w+");
@@ -67,9 +67,10 @@ void map_status(struct maps * game_map,int num_player,int turn){
         printf("error");
     }
 
+    
     fprintf(status_map, "number of player : %d\n",num_player);
     fprintf(status_map, "turn : %d\n",turn);
-    
+    fprintf(status_map, "length of map : %d\n",n);
     
     fprintf(status_map, "\nindex\t");
     fprintf(status_map, "name:\t\t");
