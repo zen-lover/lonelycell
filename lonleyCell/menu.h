@@ -61,6 +61,7 @@ void map_read(FILE *p);
 void map_write(void);
 void map_editor(void);
 void map_creator(void);
+void show_map(void);
 void initial_coordinate(struct cell */*,struct map **/);
 struct maps_el * find_map(int x,int y);
 
@@ -241,9 +242,7 @@ void Multi(void){
     printf("Multi\n");
     printf("1) 2th person\n");
     printf("2) pc\n");
-//    int multiPlayer;
-//    scanf("%d",&multiPlayer);
-//    printf("enter number of your cell:\n");
+    
     Single();
     num_player=2;
     printf("second player :\n");
@@ -311,6 +310,7 @@ void menu_1 (){
 
 void choose_1(){
     
+    show_map();
     printf("\n\nhey player number 1 is your turn\n");
     printf("choose a cell!!!\n");
     
@@ -352,6 +352,8 @@ void choose_1(){
 
 
 void choose_2(){
+    
+    show_map();
     
     printf("\n\nhey player number 2 is your turn\n");
     printf("choose a cell!!!\n");
@@ -717,8 +719,8 @@ void Exit(){
 void map(){
     
     FILE *p;
-//    p=fopen("/Users/mohammadmahdi/Documents/CE/c/finalProject/lonleyCell/lonleyCell/map.bin", "rb");
-    p=fopen("/Users/mohammadmahdi/Documents/Telegram/Map7_Test.bin", "rb");
+    p=fopen("/Users/mohammadmahdi/Documents/CE/c/finalProject/lonleyCell/lonleyCell/map.bin", "rb");
+//    p=fopen("/Users/mohammadmahdi/Documents/Telegram/Map7_Test.bin", "rb");
     
     if (p==NULL) {
         printf("error");
@@ -924,6 +926,152 @@ struct maps_el * find_map(int x,int y){
             curr=curr->next;
         }
     return curr;
+}
+
+
+
+
+
+void show_map(){
+    
+    int x = 0,y = 0;
+    if (n%2==0) {
+        for (int i=0; i<n/2; i++) {
+            printf("   _____        ");
+        }
+        printf("\n");
+        for (int j=0; j<n; j++) {
+            
+            
+            for (int i=0; i<n/2; i++) {
+                x=2*i;
+                y=n-j-1;
+                printf("  /(%d,%d)\\       ",x,y);
+            }
+            if (j!=0) {
+                printf("  /");
+            }
+            
+            printf("\n");
+            for (int i=0; i<n/2; i++) {
+                printf(" /   %c   \\      ",find_map(x, y)->map->kind);
+            }
+            if (j!=0) {
+                printf(" /");
+            }
+            printf("\n");
+            for (int i=0; i<(n/2); i++) {
+                printf("/    %d    \\_____",find_map(x, y)->map->flag);
+            }
+            if (j!=0) {
+                printf("/");
+            }
+            printf("\n");
+            for (int i=0; i<n/2; i++) {
+                x=2*i+1;
+                y=n-j-1;
+                printf("\\         /(%d,%d)",x,y);
+            }
+            printf("\\");
+            printf("\n");
+            for (int i=0; i<n/2; i++) {
+                printf(" \\       /   %c  ",find_map(x, y)->map->kind);
+            }
+            printf(" \\");
+            printf("\n");
+            for (int i=0; i<n/2; i++) {
+                printf("  \\_____/    %d  ",find_map(x, y)->map->flag);
+            }
+            printf("  \\");
+            printf("\n");
+            
+        }
+        printf("   ");
+        for (int i=0; i<n/2; i++) {
+            printf("     \\         /");
+        }
+//        printf("\\");
+        printf("\n");
+        printf("   ");
+        for (int i=0; i<n/2; i++) {
+            printf("      \\       / ");
+        }
+//        printf(" \\");
+        printf("\n");
+        printf("   ");
+        for (int i=0; i<n/2; i++) {
+            printf("       \\_____/  ");
+        }
+        
+        
+    }else{
+         for (int i=0; i<(n+1)/2; i++) {
+                    printf("   _____        ");
+                }
+                printf("\n");
+                for (int j=0; j<n; j++) {
+                    
+                    
+                    for (int i=0; i<(n+1)/2; i++) {
+                        x=2*i;
+                        y=n-j-1;
+                        printf("  /(%d,%d)\\       ",x,y);
+                    }
+//                    printf("  /");
+                    printf("\n");
+                    for (int i=0; i<(n+1)/2; i++) {
+                        printf(" /   %c   \\      ",find_map(x, y)->map->kind);
+                    }
+                    printf("\n");
+                    for (int i=0; i<(n+1)/2; i++) {
+                        printf("/    %d    \\",find_map(x, y)->map->flag);
+                        if (i<n/2) {
+                            printf("_____");
+                        }
+                    }
+                    printf("\n");
+                    for (int i=0; i<(n+1)/2; i++) {
+                        printf("\\         /");
+                        if (i<n/2) {
+                            x=2*i+1;
+                            y=n-j-1;
+                            printf("(%d,%d)",x,y);
+                        }
+                    }
+                    printf("\n");
+                    for (int i=0; i<(n+1)/2; i++) {
+                        printf(" \\       /");
+                        if (i<n/2) {
+                            printf("   %c  ",find_map(x, y)->map->kind);
+                        }
+                    }
+                    printf("\n");
+                    for (int i=0; i<(n+1)/2; i++) {
+                        printf("  \\_____/    %d  ",find_map(x, y)->map->flag);
+                    }
+                    printf("\n");
+                    
+                }
+                printf("   ");
+                for (int i=0; i<n/2; i++) {
+                    printf("     \\         /");
+                }
+        //        printf("\\");
+                printf("\n");
+                printf("   ");
+                for (int i=0; i<n/2; i++) {
+                    printf("      \\       / ");
+                }
+        //        printf(" \\");
+                printf("\n");
+                printf("   ");
+                for (int i=0; i<n/2; i++) {
+                    printf("       \\_____/  ");
+                }
+    }
+    
+    
+    printf("\n\n\n");
 }
 
 
