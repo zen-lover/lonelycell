@@ -27,30 +27,19 @@ int main(int argc, const char * argv[]) {
 //    part1
     
 
-//    map_editor();
     
     srand(time(NULL));
     
     menu_1();
     
-//    part2
-    
-    
-    
-//    part3
-    
-    
-//    show_map();
-    
     
 //    part4
     
-//    printf("ali");
     
     choose_1();
-//    if (num_player==2) {
-//        choose_2();
-//    }
+    if (num_player==2) {
+        choose_2();
+    }
     
     
     return 0;
